@@ -1,0 +1,4575 @@
+{
+  "basePath": "/api/v1",
+  "definitions": {
+    "app.Response": {
+      "description": "The Response struct is used for wrapping the API response with a code, message, and data.",
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "description": "Data is the response data (can be any object or null)\n@example {\"id\": 1, \"name\": \"John Doe\"}"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "vlr.AdvancedLine": {
+      "properties": {
+        "agent": {
+          "example": "omen",
+          "type": "string"
+        },
+        "clutches_1v1": {
+          "example": 0,
+          "type": "integer"
+        },
+        "clutches_1v2": {
+          "example": 0,
+          "type": "integer"
+        },
+        "clutches_1v3": {
+          "example": 0,
+          "type": "integer"
+        },
+        "clutches_1v4": {
+          "example": 0,
+          "type": "integer"
+        },
+        "clutches_1v5": {
+          "example": 0,
+          "type": "integer"
+        },
+        "defuses": {
+          "example": 3,
+          "type": "integer"
+        },
+        "econ_rating": {
+          "example": 49,
+          "type": "integer"
+        },
+        "multikills_2k": {
+          "example": 13,
+          "type": "integer"
+        },
+        "multikills_3k": {
+          "example": 1,
+          "type": "integer"
+        },
+        "multikills_4k": {
+          "example": 1,
+          "type": "integer"
+        },
+        "multikills_5k": {
+          "example": 0,
+          "type": "integer"
+        },
+        "plants": {
+          "example": 8,
+          "type": "integer"
+        },
+        "player": {
+          "$ref": "#/definitions/vlr.MatrixPlayer"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.AgentPick": {
+      "properties": {
+        "agent": {
+          "example": "omen",
+          "type": "string"
+        },
+        "percent": {
+          "example": 79,
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.AgentUsage": {
+      "properties": {
+        "acs": {
+          "example": 206.5,
+          "type": "number"
+        },
+        "adr": {
+          "example": 128.8,
+          "type": "number"
+        },
+        "agent": {
+          "example": "Jett",
+          "type": "string"
+        },
+        "assists": {
+          "example": 26,
+          "type": "integer"
+        },
+        "assists_per_round": {
+          "example": 0.19,
+          "type": "number"
+        },
+        "deaths": {
+          "example": 103,
+          "type": "integer"
+        },
+        "first_deaths": {
+          "example": 23,
+          "type": "integer"
+        },
+        "first_kills": {
+          "example": 14,
+          "type": "integer"
+        },
+        "first_kills_per_round": {
+          "example": 0.61,
+          "type": "number"
+        },
+        "kast_percent": {
+          "example": 63,
+          "type": "number"
+        },
+        "kd": {
+          "example": 0.98,
+          "type": "number"
+        },
+        "kills": {
+          "example": 101,
+          "type": "integer"
+        },
+        "kills_per_round": {
+          "example": 0.74,
+          "type": "number"
+        },
+        "rating": {
+          "example": 0.93,
+          "type": "number"
+        },
+        "rounds": {
+          "example": 137,
+          "type": "integer"
+        },
+        "use": {
+          "example": "(6) 29%",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.ArticleDetail": {
+      "properties": {
+        "author": {
+          "example": "jenopelle",
+          "type": "string"
+        },
+        "external_links": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "id": {
+          "example": "781119",
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "paragraphs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "published_at": {
+          "example": "2026-10-28T09:16:51Z",
+          "type": "string"
+        },
+        "references": {
+          "items": {
+            "$ref": "#/definitions/vlr.ArticleRef"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "title": {
+          "example": "Efina set to leave Gen.G as free agent",
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.ArticleRef": {
+      "properties": {
+        "id": {
+          "example": "17",
+          "type": "string"
+        },
+        "name": {
+          "example": "Gen.G",
+          "type": "string"
+        },
+        "slug": {
+          "example": "gen-g",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "team",
+            "player",
+            "event"
+          ],
+          "example": "team",
+          "type": "string"
+        },
+        "url": {
+          "example": "https://www.vlr.gg/team/17/gen-g",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.BuyBucket": {
+      "properties": {
+        "buy": {
+          "enum": [
+            "eco",
+            "half",
+            "full"
+          ],
+          "example": "eco",
+          "type": "string"
+        },
+        "label": {
+          "example": "On Eco <10k",
+          "type": "string"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/vlr.BuyOutcome"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.BuyOutcome": {
+      "properties": {
+        "team": {
+          "example": "LOUD",
+          "type": "string"
+        },
+        "vs_eco": {
+          "$ref": "#/definitions/vlr.Ratio"
+        },
+        "vs_full": {
+          "$ref": "#/definitions/vlr.Ratio"
+        },
+        "vs_half": {
+          "$ref": "#/definitions/vlr.Ratio"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.CompositionMatch": {
+      "properties": {
+        "agents": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "match_id": {
+          "example": "777952",
+          "type": "string"
+        },
+        "opponent": {
+          "example": "Nova Esports",
+          "type": "string"
+        },
+        "result": {
+          "enum": [
+            "win",
+            "loss"
+          ],
+          "example": "win",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.EconomyBlock": {
+      "properties": {
+        "buy_buckets": {
+          "items": {
+            "$ref": "#/definitions/vlr.BuyBucket"
+          },
+          "type": "array"
+        },
+        "game_id": {
+          "example": "283286",
+          "type": "string"
+        },
+        "map": {
+          "example": "Bind",
+          "type": "string"
+        },
+        "map_number": {
+          "example": 1,
+          "type": "integer"
+        },
+        "rounds": {
+          "items": {
+            "$ref": "#/definitions/vlr.EconomyRound"
+          },
+          "type": "array"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/vlr.TeamEconomy"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.EconomyRound": {
+      "properties": {
+        "pistol": {
+          "example": true,
+          "type": "boolean"
+        },
+        "round": {
+          "example": 1,
+          "type": "integer"
+        },
+        "team1_bank_k": {
+          "example": 0.1,
+          "type": "number"
+        },
+        "team1_buy": {
+          "enum": [
+            "eco",
+            "half",
+            "full"
+          ],
+          "example": "eco",
+          "type": "string"
+        },
+        "team1_loadout_k": {
+          "example": 3.9,
+          "type": "number"
+        },
+        "team2_bank_k": {
+          "example": 0.1,
+          "type": "number"
+        },
+        "team2_buy": {
+          "enum": [
+            "eco",
+            "half",
+            "full"
+          ],
+          "example": "eco",
+          "type": "string"
+        },
+        "team2_loadout_k": {
+          "example": 4,
+          "type": "number"
+        },
+        "winner_side": {
+          "enum": [
+            "attack",
+            "defense"
+          ],
+          "example": "defense",
+          "type": "string"
+        },
+        "winner_team": {
+          "example": "VIT",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.EventAgentsResponse": {
+      "properties": {
+        "agents": {
+          "example": [
+            "omen"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "compositions": {
+          "items": {
+            "$ref": "#/definitions/vlr.MapCompositions"
+          },
+          "type": "array"
+        },
+        "event_id": {
+          "example": "3166",
+          "type": "string"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "maps": {
+          "items": {
+            "$ref": "#/definitions/vlr.MapAgentRow"
+          },
+          "type": "array"
+        },
+        "overall": {
+          "$ref": "#/definitions/vlr.MapAgentRow"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.EventDetail": {
+      "properties": {
+        "dates": {
+          "example": "Oct 21 – Nov 1, 2026",
+          "type": "string"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "id": {
+          "example": "3166",
+          "type": "string"
+        },
+        "image_url": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "name": {
+          "example": "VCT 2026: China Threshold",
+          "type": "string"
+        },
+        "prize": {
+          "example": "TBD",
+          "type": "string"
+        },
+        "series": {
+          "example": "Valorant Champions Tour 2027",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/vlr.TeamRef"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.EventMatchesResponse": {
+      "properties": {
+        "count": {
+          "example": 22,
+          "type": "integer"
+        },
+        "event_id": {
+          "example": "3166",
+          "type": "string"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "group": {
+          "enum": [
+            "completed",
+            "upcoming"
+          ],
+          "example": "completed",
+          "type": "string"
+        },
+        "matches": {
+          "items": {
+            "$ref": "#/definitions/vlr.MatchSummary"
+          },
+          "type": "array"
+        },
+        "series_id": {
+          "example": "6080",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        },
+        "stages": {
+          "items": {
+            "$ref": "#/definitions/vlr.EventStage"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.EventRef": {
+      "properties": {
+        "id": {
+          "example": "3166",
+          "type": "string"
+        },
+        "name": {
+          "example": "VCT 2026: China Threshold",
+          "type": "string"
+        },
+        "series": {
+          "example": "Week 2: Round of 12",
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.EventStage": {
+      "properties": {
+        "id": {
+          "example": "6080",
+          "type": "string"
+        },
+        "name": {
+          "example": "Week 1",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.EventStatsResponse": {
+      "properties": {
+        "count": {
+          "example": 67,
+          "type": "integer"
+        },
+        "event_id": {
+          "example": "3166",
+          "type": "string"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "players": {
+          "items": {
+            "$ref": "#/definitions/vlr.StatsRow"
+          },
+          "type": "array"
+        },
+        "side": {
+          "enum": [
+            "all",
+            "t",
+            "ct"
+          ],
+          "example": "all",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.EventSummary": {
+      "properties": {
+        "country_code": {
+          "example": "br",
+          "type": "string"
+        },
+        "dates": {
+          "example": "Oct 22—Nov 3",
+          "type": "string"
+        },
+        "id": {
+          "example": "3166",
+          "type": "string"
+        },
+        "image_url": {
+          "type": "string"
+        },
+        "name": {
+          "example": "VCT 2026: China Threshold",
+          "type": "string"
+        },
+        "prize": {
+          "example": "$500,000",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "upcoming",
+            "ongoing",
+            "completed"
+          ],
+          "example": "ongoing",
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.EventsResponse": {
+      "properties": {
+        "count": {
+          "example": 40,
+          "type": "integer"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/vlr.EventSummary"
+          },
+          "type": "array"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "has_more": {
+          "example": true,
+          "type": "boolean"
+        },
+        "page": {
+          "example": 1,
+          "type": "integer"
+        },
+        "region": {
+          "example": "all",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        },
+        "tier": {
+          "example": "all",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.ForumCategoriesResponse": {
+      "properties": {
+        "categories": {
+          "items": {
+            "$ref": "#/definitions/vlr.ForumCategory"
+          },
+          "type": "array"
+        },
+        "count": {
+          "example": 3,
+          "type": "integer"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.ForumCategory": {
+      "properties": {
+        "description": {
+          "example": "Anything and everything Valorant",
+          "type": "string"
+        },
+        "group": {
+          "example": "Valorant",
+          "type": "string"
+        },
+        "last_post_time": {
+          "example": "Oct 27, 2026 at 20:35 CET",
+          "type": "string"
+        },
+        "last_poster": {
+          "example": "iceypicks",
+          "type": "string"
+        },
+        "last_thread_id": {
+          "example": "780920",
+          "type": "string"
+        },
+        "name": {
+          "example": "Valorant Discussion",
+          "type": "string"
+        },
+        "posts": {
+          "example": 5543705,
+          "type": "integer"
+        },
+        "slug": {
+          "enum": [
+            "valorant-discussion",
+            "off-topic",
+            "site-feedback"
+          ],
+          "example": "valorant-discussion",
+          "type": "string"
+        },
+        "threads": {
+          "example": 577804,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.ForumThread": {
+      "properties": {
+        "author": {
+          "example": "enigma",
+          "type": "string"
+        },
+        "category": {
+          "example": "valorant-discussion",
+          "type": "string"
+        },
+        "category_name": {
+          "example": "Valorant Discussion",
+          "type": "string"
+        },
+        "frags": {
+          "example": 2408,
+          "type": "integer"
+        },
+        "id": {
+          "example": "780920",
+          "type": "string"
+        },
+        "last_active": {
+          "example": "5 years ago",
+          "type": "string"
+        },
+        "last_poster": {
+          "example": "enigma",
+          "type": "string"
+        },
+        "pinned": {
+          "example": false,
+          "type": "boolean"
+        },
+        "posted": {
+          "example": "5 years ago",
+          "type": "string"
+        },
+        "replies": {
+          "example": 1,
+          "type": "integer"
+        },
+        "title": {
+          "example": "Zak9: Cane is back",
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.ForumThreadsResponse": {
+      "properties": {
+        "category": {
+          "example": "valorant-discussion",
+          "type": "string"
+        },
+        "count": {
+          "example": 30,
+          "type": "integer"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "has_more": {
+          "example": true,
+          "type": "boolean"
+        },
+        "page": {
+          "example": 1,
+          "type": "integer"
+        },
+        "sort": {
+          "enum": [
+            "hot",
+            "new",
+            "top"
+          ],
+          "example": "new",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        },
+        "threads": {
+          "items": {
+            "$ref": "#/definitions/vlr.ForumThread"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.H2HMatch": {
+      "properties": {
+        "date": {
+          "example": "2026/10/16",
+          "type": "string"
+        },
+        "event": {
+          "example": "Champions 2026",
+          "type": "string"
+        },
+        "id": {
+          "example": "754736",
+          "type": "string"
+        },
+        "stage": {
+          "example": "UBF",
+          "type": "string"
+        },
+        "team1_score": {
+          "example": 2,
+          "type": "integer"
+        },
+        "team2_score": {
+          "example": 1,
+          "type": "integer"
+        },
+        "url": {
+          "type": "string"
+        },
+        "winner": {
+          "description": "team1/team2 are the head_to_head teams, left and right",
+          "enum": [
+            "team1",
+            "team2"
+          ],
+          "example": "team1",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.HeadToHead": {
+      "properties": {
+        "matches": {
+          "items": {
+            "$ref": "#/definitions/vlr.H2HMatch"
+          },
+          "type": "array"
+        },
+        "team1": {
+          "example": "LOUD",
+          "type": "string"
+        },
+        "team2": {
+          "example": "Team Vitality",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.HistoryResponse": {
+      "properties": {
+        "count": {
+          "example": 50,
+          "type": "integer"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "group": {
+          "enum": [
+            "completed",
+            "upcoming"
+          ],
+          "example": "completed",
+          "type": "string"
+        },
+        "has_more": {
+          "example": true,
+          "type": "boolean"
+        },
+        "id": {
+          "example": "2059",
+          "type": "string"
+        },
+        "matches": {
+          "items": {
+            "$ref": "#/definitions/vlr.TeamMatch"
+          },
+          "type": "array"
+        },
+        "page": {
+          "example": 1,
+          "type": "integer"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.KillMatrix": {
+      "properties": {
+        "mode": {
+          "enum": [
+            "overall",
+            "first_kills",
+            "op_kills"
+          ],
+          "example": "overall",
+          "type": "string"
+        },
+        "rows": {
+          "items": {
+            "$ref": "#/definitions/vlr.MatrixRow"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.MapAgentRow": {
+      "properties": {
+        "attack_win_percent": {
+          "example": 49,
+          "type": "number"
+        },
+        "defense_win_percent": {
+          "example": 51,
+          "type": "number"
+        },
+        "games": {
+          "example": 8,
+          "type": "integer"
+        },
+        "map": {
+          "example": "Summit",
+          "type": "string"
+        },
+        "pick_rates": {
+          "items": {
+            "$ref": "#/definitions/vlr.AgentPick"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.MapCompositions": {
+      "properties": {
+        "map": {
+          "example": "Split",
+          "type": "string"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/vlr.TeamComposition"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.MapResult": {
+      "properties": {
+        "duration": {
+          "example": "41:12",
+          "type": "string"
+        },
+        "id": {
+          "example": "287476",
+          "type": "string"
+        },
+        "name": {
+          "example": "Summit",
+          "type": "string"
+        },
+        "number": {
+          "example": 1,
+          "type": "integer"
+        },
+        "picked_by": {
+          "example": "Unsettled Resentment",
+          "type": "string"
+        },
+        "players": {
+          "items": {
+            "$ref": "#/definitions/vlr.PlayerLine"
+          },
+          "type": "array"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/vlr.MapTeamResult"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.MapSide": {
+      "properties": {
+        "first_rounds": {
+          "example": 21,
+          "type": "integer"
+        },
+        "round_win_percent": {
+          "example": 47,
+          "type": "number"
+        },
+        "rounds_lost": {
+          "example": 248,
+          "type": "integer"
+        },
+        "rounds_won": {
+          "example": 223,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.MapTeamResult": {
+      "properties": {
+        "name": {
+          "example": "Unsettled Resentment",
+          "type": "string"
+        },
+        "rounds": {
+          "$ref": "#/definitions/vlr.RoundSplit"
+        },
+        "score": {
+          "example": 17,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.MatchDetail": {
+      "properties": {
+        "all_maps_players": {
+          "items": {
+            "$ref": "#/definitions/vlr.PlayerLine"
+          },
+          "type": "array"
+        },
+        "event": {
+          "$ref": "#/definitions/vlr.EventRef"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "format": {
+          "example": "Bo3",
+          "type": "string"
+        },
+        "head_to_head": {
+          "$ref": "#/definitions/vlr.HeadToHead"
+        },
+        "id": {
+          "example": "777956",
+          "type": "string"
+        },
+        "maps": {
+          "items": {
+            "$ref": "#/definitions/vlr.MapResult"
+          },
+          "type": "array"
+        },
+        "note": {
+          "type": "string"
+        },
+        "past_matches": {
+          "items": {
+            "$ref": "#/definitions/vlr.PastMatches"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        },
+        "start_time_utc": {
+          "example": "2026-10-27T05:00:00Z",
+          "type": "string"
+        },
+        "status": {
+          "example": "final",
+          "type": "string"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/vlr.TeamScore"
+          },
+          "type": "array"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.MatchEconomy": {
+      "properties": {
+        "all_maps": {
+          "$ref": "#/definitions/vlr.EconomyBlock"
+        },
+        "available": {
+          "example": true,
+          "type": "boolean"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "id": {
+          "example": "754737",
+          "type": "string"
+        },
+        "maps": {
+          "items": {
+            "$ref": "#/definitions/vlr.EconomyBlock"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.MatchListResponse": {
+      "properties": {
+        "count": {
+          "example": 50,
+          "type": "integer"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "has_more": {
+          "example": true,
+          "type": "boolean"
+        },
+        "matches": {
+          "items": {
+            "$ref": "#/definitions/vlr.MatchSummary"
+          },
+          "type": "array"
+        },
+        "page": {
+          "example": 1,
+          "type": "integer"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.MatchPerformance": {
+      "properties": {
+        "all_maps": {
+          "$ref": "#/definitions/vlr.PerformanceBlock"
+        },
+        "available": {
+          "example": true,
+          "type": "boolean"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "id": {
+          "example": "754737",
+          "type": "string"
+        },
+        "maps": {
+          "items": {
+            "$ref": "#/definitions/vlr.PerformanceBlock"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.MatchRounds": {
+      "properties": {
+        "available": {
+          "example": true,
+          "type": "boolean"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "id": {
+          "example": "754737",
+          "type": "string"
+        },
+        "maps": {
+          "items": {
+            "$ref": "#/definitions/vlr.RoundsBlock"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.MatchSummary": {
+      "properties": {
+        "date": {
+          "example": "2026-10-27",
+          "type": "string"
+        },
+        "eta": {
+          "example": "3h 33m",
+          "type": "string"
+        },
+        "event": {
+          "example": "VCT 2026: China Threshold",
+          "type": "string"
+        },
+        "has_stats": {
+          "example": true,
+          "type": "boolean"
+        },
+        "has_vods": {
+          "example": false,
+          "type": "boolean"
+        },
+        "id": {
+          "example": "777956",
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "series": {
+          "example": "Week 2–Round of 12",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "upcoming",
+            "live",
+            "completed"
+          ],
+          "example": "completed",
+          "type": "string"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/vlr.MatchTeam"
+          },
+          "type": "array"
+        },
+        "time_label": {
+          "example": "5:00 PM",
+          "type": "string"
+        },
+        "url": {
+          "example": "https://www.vlr.gg/777956/unsettled-resentment-vs-victory-no-limits-gaming-vct-2026-china-threshold-week-2-ro12",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.MatchTeam": {
+      "properties": {
+        "country_code": {
+          "example": "cn",
+          "type": "string"
+        },
+        "name": {
+          "example": "Unsettled Resentment",
+          "type": "string"
+        },
+        "score": {
+          "example": 2,
+          "type": "integer"
+        },
+        "winner": {
+          "example": true,
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.MatrixCell": {
+      "properties": {
+        "deaths": {
+          "example": 15,
+          "type": "integer"
+        },
+        "diff": {
+          "example": -4,
+          "type": "integer"
+        },
+        "kills": {
+          "example": 11,
+          "type": "integer"
+        },
+        "opponent": {
+          "$ref": "#/definitions/vlr.MatrixPlayer"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.MatrixPlayer": {
+      "properties": {
+        "name": {
+          "example": "erde",
+          "type": "string"
+        },
+        "team": {
+          "example": "LOUD",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.MatrixRow": {
+      "properties": {
+        "player": {
+          "$ref": "#/definitions/vlr.MatrixPlayer"
+        },
+        "vs": {
+          "items": {
+            "$ref": "#/definitions/vlr.MatrixCell"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.NewsItem": {
+      "properties": {
+        "author": {
+          "example": "jenopelle",
+          "type": "string"
+        },
+        "country_code": {
+          "example": "kr",
+          "type": "string"
+        },
+        "date": {
+          "example": "2026-10-27",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "example": "780785",
+          "type": "string"
+        },
+        "title": {
+          "example": "T1 Academy's full roster released ahead of 2027 season",
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.NewsResponse": {
+      "properties": {
+        "count": {
+          "example": 30,
+          "type": "integer"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "has_more": {
+          "example": true,
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/vlr.NewsItem"
+          },
+          "type": "array"
+        },
+        "page": {
+          "example": 1,
+          "type": "integer"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.PastMatch": {
+      "properties": {
+        "date": {
+          "example": "2026/10/16",
+          "type": "string"
+        },
+        "id": {
+          "example": "754736",
+          "type": "string"
+        },
+        "opponent": {
+          "example": "Team Vitality",
+          "type": "string"
+        },
+        "result": {
+          "enum": [
+            "win",
+            "loss"
+          ],
+          "example": "win",
+          "type": "string"
+        },
+        "score": {
+          "example": "2:1",
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.PastMatches": {
+      "properties": {
+        "matches": {
+          "items": {
+            "$ref": "#/definitions/vlr.PastMatch"
+          },
+          "type": "array"
+        },
+        "team": {
+          "example": "LOUD",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.PerformanceBlock": {
+      "properties": {
+        "advanced": {
+          "items": {
+            "$ref": "#/definitions/vlr.AdvancedLine"
+          },
+          "type": "array"
+        },
+        "game_id": {
+          "example": "283286",
+          "type": "string"
+        },
+        "kill_matrices": {
+          "items": {
+            "$ref": "#/definitions/vlr.KillMatrix"
+          },
+          "type": "array"
+        },
+        "map": {
+          "example": "Bind",
+          "type": "string"
+        },
+        "map_number": {
+          "example": 1,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.PlayerDetail": {
+      "properties": {
+        "agent_stats": {
+          "items": {
+            "$ref": "#/definitions/vlr.AgentUsage"
+          },
+          "type": "array"
+        },
+        "alias": {
+          "example": "Jamppi",
+          "type": "string"
+        },
+        "country": {
+          "example": "FINLAND",
+          "type": "string"
+        },
+        "country_code": {
+          "example": "fi",
+          "type": "string"
+        },
+        "current_teams": {
+          "items": {
+            "$ref": "#/definitions/vlr.PlayerTeam"
+          },
+          "type": "array"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "id": {
+          "example": "9780",
+          "type": "string"
+        },
+        "image_url": {
+          "type": "string"
+        },
+        "links": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "past_teams": {
+          "items": {
+            "$ref": "#/definitions/vlr.PlayerTeam"
+          },
+          "type": "array"
+        },
+        "real_name": {
+          "example": "Elias Olkkonen",
+          "type": "string"
+        },
+        "recent_matches": {
+          "items": {
+            "$ref": "#/definitions/vlr.TeamMatch"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        },
+        "timespan": {
+          "enum": [
+            "all",
+            "30d",
+            "60d",
+            "90d"
+          ],
+          "example": "90d",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.PlayerLine": {
+      "properties": {
+        "acs": {
+          "example": 297,
+          "type": "integer"
+        },
+        "adr": {
+          "example": 178.3,
+          "type": "number"
+        },
+        "agents": {
+          "example": [
+            "Harbor"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "assists": {
+          "example": 12,
+          "type": "integer"
+        },
+        "country_code": {
+          "example": "cn",
+          "type": "string"
+        },
+        "deaths": {
+          "example": 23,
+          "type": "integer"
+        },
+        "first_deaths": {
+          "example": 3,
+          "type": "integer"
+        },
+        "first_kills": {
+          "example": 5,
+          "type": "integer"
+        },
+        "fk_diff": {
+          "example": 2,
+          "type": "integer"
+        },
+        "headshot_percent": {
+          "example": 24,
+          "type": "number"
+        },
+        "id": {
+          "example": "66833",
+          "type": "string"
+        },
+        "kast_percent": {
+          "example": 72,
+          "type": "number"
+        },
+        "kd_diff": {
+          "example": 13,
+          "type": "integer"
+        },
+        "kills": {
+          "example": 36,
+          "type": "integer"
+        },
+        "name": {
+          "example": "Hopedawn",
+          "type": "string"
+        },
+        "rating": {
+          "example": 1.12,
+          "type": "number"
+        },
+        "team": {
+          "example": "UR",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.PlayerRef": {
+      "properties": {
+        "country_code": {
+          "example": "cl",
+          "type": "string"
+        },
+        "id": {
+          "example": "29242",
+          "type": "string"
+        },
+        "name": {
+          "example": "erde",
+          "type": "string"
+        },
+        "team": {
+          "example": "LOUD",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.PlayerTeam": {
+      "properties": {
+        "id": {
+          "example": "21919",
+          "type": "string"
+        },
+        "logo_url": {
+          "type": "string"
+        },
+        "name": {
+          "example": "Unsettled Resentment",
+          "type": "string"
+        },
+        "period": {
+          "example": "January 2025 - Present",
+          "type": "string"
+        },
+        "tag": {
+          "example": "UR",
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.RankingRow": {
+      "properties": {
+        "country": {
+          "example": "United States",
+          "type": "string"
+        },
+        "earnings": {
+          "example": "$1,191,150",
+          "type": "string"
+        },
+        "last_match_id": {
+          "example": "754743",
+          "type": "string"
+        },
+        "rank": {
+          "example": 1,
+          "type": "integer"
+        },
+        "rating": {
+          "example": 2000,
+          "type": "number"
+        },
+        "record": {
+          "example": "62–35",
+          "type": "string"
+        },
+        "streak": {
+          "example": "1L",
+          "type": "string"
+        },
+        "team": {
+          "$ref": "#/definitions/vlr.TeamRef"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.RankingsResponse": {
+      "properties": {
+        "count": {
+          "example": 50,
+          "type": "integer"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "region": {
+          "example": "north-america",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/vlr.RankingRow"
+          },
+          "type": "array"
+        },
+        "total": {
+          "example": 197,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.Ratio": {
+      "properties": {
+        "played": {
+          "example": 8,
+          "type": "integer"
+        },
+        "won": {
+          "example": 3,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.RosterMember": {
+      "properties": {
+        "alias": {
+          "example": "Jamppi",
+          "type": "string"
+        },
+        "country_code": {
+          "example": "fi",
+          "type": "string"
+        },
+        "id": {
+          "example": "9780",
+          "type": "string"
+        },
+        "image_url": {
+          "type": "string"
+        },
+        "real_name": {
+          "example": "Elias Olkkonen",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "player",
+            "captain",
+            "coach",
+            "manager",
+            "analyst",
+            "staff"
+          ],
+          "example": "player",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.RoundEvent": {
+      "properties": {
+        "player": {
+          "example": "Derke",
+          "type": "string"
+        },
+        "player_team": {
+          "example": "VIT",
+          "type": "string"
+        },
+        "time": {
+          "example": "0:02",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "kill",
+            "plant",
+            "defuse"
+          ],
+          "example": "kill",
+          "type": "string"
+        },
+        "victim": {
+          "example": "lukxo",
+          "type": "string"
+        },
+        "weapon": {
+          "example": "Headhunter",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.RoundLoadout": {
+      "properties": {
+        "agent": {
+          "example": "Sage",
+          "type": "string"
+        },
+        "armor": {
+          "example": "Light armor",
+          "type": "string"
+        },
+        "credits_left": {
+          "example": 0,
+          "type": "integer"
+        },
+        "player": {
+          "example": "erde",
+          "type": "string"
+        },
+        "spent": {
+          "example": 800,
+          "type": "integer"
+        },
+        "team": {
+          "example": "LOUD",
+          "type": "string"
+        },
+        "weapon": {
+          "example": "Ghost",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.RoundLog": {
+      "properties": {
+        "attacking_team": {
+          "example": "LOUD",
+          "type": "string"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/vlr.RoundEvent"
+          },
+          "type": "array"
+        },
+        "loadouts": {
+          "items": {
+            "$ref": "#/definitions/vlr.RoundLoadout"
+          },
+          "type": "array"
+        },
+        "round": {
+          "example": 1,
+          "type": "integer"
+        },
+        "score_after": {
+          "$ref": "#/definitions/vlr.RoundScore"
+        },
+        "spike_detonated": {
+          "example": false,
+          "type": "boolean"
+        },
+        "winner_team": {
+          "example": "Team Vitality",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.RoundScore": {
+      "properties": {
+        "team1": {
+          "example": 0,
+          "type": "integer"
+        },
+        "team2": {
+          "example": 1,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.RoundSplit": {
+      "properties": {
+        "attack": {
+          "example": 6,
+          "type": "integer"
+        },
+        "defend": {
+          "example": 6,
+          "type": "integer"
+        },
+        "overtime": {
+          "example": 5,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.RoundsBlock": {
+      "properties": {
+        "game_id": {
+          "example": "283286",
+          "type": "string"
+        },
+        "map": {
+          "example": "Summit",
+          "type": "string"
+        },
+        "map_number": {
+          "example": 1,
+          "type": "integer"
+        },
+        "rounds": {
+          "items": {
+            "$ref": "#/definitions/vlr.RoundLog"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.SearchCounts": {
+      "properties": {
+        "events": {
+          "example": 5,
+          "type": "integer"
+        },
+        "players": {
+          "example": 16,
+          "type": "integer"
+        },
+        "teams": {
+          "example": 26,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.SearchResponse": {
+      "properties": {
+        "count": {
+          "example": 47,
+          "type": "integer"
+        },
+        "counts": {
+          "$ref": "#/definitions/vlr.SearchCounts"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "query": {
+          "example": "prime",
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/vlr.SearchResult"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "all",
+            "teams",
+            "events",
+            "players"
+          ],
+          "example": "all",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.SearchResult": {
+      "properties": {
+        "date_range": {
+          "example": "May 27, 2026 to Jul 28, 2026",
+          "type": "string"
+        },
+        "description": {
+          "example": "May 27, 2026 to Jul 28, 2026 ⋅ $500",
+          "type": "string"
+        },
+        "id": {
+          "example": "2",
+          "type": "string"
+        },
+        "image_url": {
+          "type": "string"
+        },
+        "inactive": {
+          "example": true,
+          "type": "boolean"
+        },
+        "kind": {
+          "enum": [
+            "team",
+            "event",
+            "player"
+          ],
+          "example": "team",
+          "type": "string"
+        },
+        "name": {
+          "example": "Sentinels",
+          "type": "string"
+        },
+        "prize_pool": {
+          "example": "$500",
+          "type": "string"
+        },
+        "successor": {
+          "example": "Into The Breach Prime",
+          "type": "string"
+        },
+        "url": {
+          "example": "https://www.vlr.gg/team/2",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.StatsResponse": {
+      "properties": {
+        "count": {
+          "example": 50,
+          "type": "integer"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "has_more": {
+          "example": true,
+          "type": "boolean"
+        },
+        "page": {
+          "example": 1,
+          "type": "integer"
+        },
+        "players": {
+          "items": {
+            "$ref": "#/definitions/vlr.StatsRow"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.StatsRow": {
+      "properties": {
+        "acs": {
+          "example": 224,
+          "type": "number"
+        },
+        "adr": {
+          "example": 147.2,
+          "type": "number"
+        },
+        "agent_usage": {
+          "example": [
+            "54%"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "agents": {
+          "example": [
+            "Jett"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "assists": {
+          "example": 289,
+          "type": "integer"
+        },
+        "assists_per_round": {
+          "example": 0.38,
+          "type": "number"
+        },
+        "clutch_percent": {
+          "example": 15,
+          "type": "number"
+        },
+        "clutches_total": {
+          "example": 89,
+          "type": "integer"
+        },
+        "clutches_won": {
+          "example": 13,
+          "type": "integer"
+        },
+        "deaths": {
+          "example": 466,
+          "type": "integer"
+        },
+        "first_death_percent": {
+          "example": 9,
+          "type": "number"
+        },
+        "first_deaths": {
+          "example": 69,
+          "type": "integer"
+        },
+        "first_kill_percent": {
+          "example": 10,
+          "type": "number"
+        },
+        "first_kills": {
+          "example": 73,
+          "type": "integer"
+        },
+        "fk_fd_ratio": {
+          "example": 1.06,
+          "type": "number"
+        },
+        "headshot_percent": {
+          "example": 28,
+          "type": "number"
+        },
+        "kast_percent": {
+          "example": 76,
+          "type": "number"
+        },
+        "kd": {
+          "example": 1.27,
+          "type": "number"
+        },
+        "kills": {
+          "example": 594,
+          "type": "integer"
+        },
+        "kills_per_round": {
+          "example": 0.79,
+          "type": "number"
+        },
+        "maps": {
+          "example": 35,
+          "type": "integer"
+        },
+        "max_kills": {
+          "example": 28,
+          "type": "integer"
+        },
+        "player": {
+          "$ref": "#/definitions/vlr.PlayerRef"
+        },
+        "rating": {
+          "example": 1.22,
+          "type": "number"
+        },
+        "rounds": {
+          "example": 752,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.TeamComposition": {
+      "properties": {
+        "agents_used": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "matches": {
+          "items": {
+            "$ref": "#/definitions/vlr.CompositionMatch"
+          },
+          "type": "array"
+        },
+        "team": {
+          "example": "Dragon Ranger Gaming",
+          "type": "string"
+        },
+        "team_id": {
+          "example": "11981",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.TeamDetail": {
+      "properties": {
+        "country": {
+          "example": "Europe",
+          "type": "string"
+        },
+        "country_code": {
+          "example": "eu",
+          "type": "string"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "id": {
+          "example": "2059",
+          "type": "string"
+        },
+        "links": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "logo_url": {
+          "type": "string"
+        },
+        "name": {
+          "example": "Team Vitality",
+          "type": "string"
+        },
+        "news": {
+          "items": {
+            "$ref": "#/definitions/vlr.NewsItem"
+          },
+          "type": "array"
+        },
+        "recent_matches": {
+          "items": {
+            "$ref": "#/definitions/vlr.TeamMatch"
+          },
+          "type": "array"
+        },
+        "roster": {
+          "items": {
+            "$ref": "#/definitions/vlr.RosterMember"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        },
+        "tag": {
+          "example": "VIT",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.TeamEconomy": {
+      "properties": {
+        "bonus_rounds": {
+          "$ref": "#/definitions/vlr.Ratio"
+        },
+        "pistol_conversion": {
+          "$ref": "#/definitions/vlr.Ratio"
+        },
+        "pistol_rounds": {
+          "$ref": "#/definitions/vlr.Ratio"
+        },
+        "team": {
+          "example": "LOUD",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.TeamMapRow": {
+      "properties": {
+        "attack": {
+          "$ref": "#/definitions/vlr.MapSide"
+        },
+        "defense": {
+          "$ref": "#/definitions/vlr.MapSide"
+        },
+        "losses": {
+          "example": 25,
+          "type": "integer"
+        },
+        "map": {
+          "example": "Bind",
+          "type": "string"
+        },
+        "played": {
+          "example": 45,
+          "type": "integer"
+        },
+        "win_percent": {
+          "example": 44,
+          "type": "number"
+        },
+        "wins": {
+          "example": 20,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.TeamMapsResponse": {
+      "properties": {
+        "count": {
+          "example": 12,
+          "type": "integer"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "maps": {
+          "items": {
+            "$ref": "#/definitions/vlr.TeamMapRow"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://www.vlr.gg/matches",
+          "type": "string"
+        },
+        "team_id": {
+          "example": "2059",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.TeamMatch": {
+      "properties": {
+        "date": {
+          "example": "2026/10/18",
+          "type": "string"
+        },
+        "eta": {
+          "example": "1d 17h",
+          "type": "string"
+        },
+        "event": {
+          "example": "Champions 2026",
+          "type": "string"
+        },
+        "id": {
+          "example": "754737",
+          "type": "string"
+        },
+        "opponent": {
+          "example": "LOUD",
+          "type": "string"
+        },
+        "result": {
+          "enum": [
+            "win",
+            "loss",
+            "upcoming"
+          ],
+          "example": "loss",
+          "type": "string"
+        },
+        "score": {
+          "example": "1:3",
+          "type": "string"
+        },
+        "stage": {
+          "example": "Playoffs ⋅ GF",
+          "type": "string"
+        },
+        "team": {
+          "example": "Team Vitality",
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.TeamRef": {
+      "properties": {
+        "id": {
+          "example": "21919",
+          "type": "string"
+        },
+        "logo_url": {
+          "type": "string"
+        },
+        "name": {
+          "example": "Unsettled Resentment",
+          "type": "string"
+        },
+        "tag": {
+          "example": "UR",
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "vlr.TeamScore": {
+      "properties": {
+        "id": {
+          "example": "21919",
+          "type": "string"
+        },
+        "logo_url": {
+          "type": "string"
+        },
+        "name": {
+          "example": "Unsettled Resentment",
+          "type": "string"
+        },
+        "score": {
+          "example": 2,
+          "type": "integer"
+        },
+        "tag": {
+          "example": "UR",
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "winner": {
+          "example": true,
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "api.crawlora.net",
+  "info": {
+    "contact": {
+      "email": "support@crawlora.net",
+      "name": "API Support",
+      "url": "https://crawlora.net"
+    },
+    "description": "Crawlora is a hosted web-data and SERP API: call documented REST endpoints and get normalized JSON instead of HTML to parse — across search/SERP, maps and local, e-commerce, app stores, social, media and finance. One API key; Crawlora runs the proxy rotation, headless browsers and parsing behind the scenes. Billed pay-on-success: charged only on a successful 2xx response, 1-10 credits per call, with a free tier of 2,000 credits per month and no card. A hosted MCP server (mcp.crawlora.net/mcp) exposes the same catalog as agent tools. Search endpoints accept `q` as a universal alias for whichever search-term parameter they document (`query`, `term`, `keyword`, or Amazon's `k`), so one parameter name works across the whole catalog; an explicitly supplied documented name always wins.",
+    "license": {
+      "name": "Crawlora Terms of Service",
+      "url": "https://crawlora.net/terms"
+    },
+    "termsOfService": "https://crawlora.net/terms",
+    "title": "Crawlora API",
+    "version": "1.2",
+    "x-logo": {
+      "altText": "Crawlora",
+      "backgroundColor": "#FFFFFF",
+      "url": "https://raw.githubusercontent.com/Crawlora-org/crawlora-mcp/main/assets/logo-400x400.png"
+    }
+  },
+  "paths": {
+    "/vlr/event": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one VLR.gg event: name, series, dates, prize, location and the participating teams with ids. Use vlr-event-matches for its matches and vlr-team for a team.",
+        "operationId": "vlr-event",
+        "parameters": [
+          {
+            "description": "Numeric VLR event id from vlr-events",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "3166"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.EventDetail"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg Valorant event detail and participating teams",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/event-agents": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the agent pick-rate matrix of one VLR.gg event: for the whole event and for each map, the number of games, the attack-side and defense-side round win rates and the share of games in which each agent was played. Also returns, per map, each team's agents used and the agents picked in each of its matches (compositions). Use it to see an event's meta; vlr-stats gives per-player agent usage.",
+        "operationId": "vlr-event-agents",
+        "parameters": [
+          {
+            "description": "Numeric VLR event id from vlr-events",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "3166"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.EventAgentsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg Valorant event agent pick rates by map",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/event-matches": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns every match of one VLR.gg event (upcoming, live and completed) with teams, scores, stage and whether stats or VODs exist. Use vlr-match with a returned `id` for map detail.",
+        "operationId": "vlr-event-matches",
+        "parameters": [
+          {
+            "description": "Numeric VLR event id from vlr-events",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "3166"
+          },
+          {
+            "description": "Stage id from the stages list of an earlier response (a week, group or bracket round); omit for every stage",
+            "in": "query",
+            "name": "series_id",
+            "type": "string",
+            "x-example": "6080"
+          },
+          {
+            "description": "Match group; one of completed, upcoming; omit for both",
+            "enum": [
+              "completed",
+              "upcoming"
+            ],
+            "in": "query",
+            "name": "group",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.EventMatchesResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg Valorant event match list",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/event-stats": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the player statistics table of one VLR.gg event (rating, ACS, K:D, KAST, ADR, per-round rates, first kills, clutches, totals) for every player who appeared, optionally for one `side` (`all`, `t` attack, `ct` defend). For league-wide filtered statistics use vlr-stats.",
+        "operationId": "vlr-event-stats",
+        "parameters": [
+          {
+            "description": "Numeric VLR event id from vlr-events",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "3166"
+          },
+          {
+            "description": "Side; one of all, t, ct; defaults to all",
+            "enum": [
+              "all",
+              "t",
+              "ct"
+            ],
+            "in": "query",
+            "name": "side",
+            "type": "string"
+          },
+          {
+            "description": "Comma-separated agent roles; any of controller, initiator, sentinel, duelist",
+            "in": "query",
+            "name": "role",
+            "type": "string",
+            "x-example": "duelist"
+          },
+          {
+            "description": "Comma-separated agents, for example jett,sage; the same 29 agents as vlr-stats",
+            "in": "query",
+            "name": "agent",
+            "type": "string",
+            "x-example": "jett"
+          },
+          {
+            "description": "Comma-separated map names, for example ascent,bind; the same 13 maps as vlr-stats",
+            "in": "query",
+            "name": "map",
+            "type": "string",
+            "x-example": "ascent"
+          },
+          {
+            "description": "Comma-separated stage ids from the stages list of vlr-event-matches",
+            "in": "query",
+            "name": "stage",
+            "type": "string",
+            "x-example": "6080"
+          },
+          {
+            "description": "Minimum rounds played; 0 to 100000",
+            "in": "query",
+            "maximum": 100000,
+            "minimum": 0,
+            "name": "min_rounds",
+            "type": "integer"
+          },
+          {
+            "description": "Sort column, the same set as vlr-stats; defaults to rating",
+            "in": "query",
+            "name": "sort",
+            "type": "string"
+          },
+          {
+            "description": "Sort direction; one of desc, asc; defaults to desc",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "in": "query",
+            "name": "dir",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.EventStatsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg Valorant event player statistics",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/events": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns Valorant events from VLR.gg: ongoing, upcoming and completed events with prize pool, dates and region flag. Filter by `tier` (`all`, `vct`, `vcl`, `t3`, `gc`, `cg`, `off`) and `region` (`all`, `americas`, `emea`, `pacific`, `china`); `page` pages through completed events. Use vlr-event with a returned `id`.",
+        "operationId": "vlr-events",
+        "parameters": [
+          {
+            "description": "Event tier; one of all, vct, vcl, t3, gc, cg, off; defaults to all",
+            "enum": [
+              "all",
+              "vct",
+              "vcl",
+              "t3",
+              "gc",
+              "cg",
+              "off"
+            ],
+            "in": "query",
+            "name": "tier",
+            "type": "string"
+          },
+          {
+            "description": "Event region; one of all, americas, emea, pacific, china; defaults to all",
+            "enum": [
+              "all",
+              "americas",
+              "emea",
+              "pacific",
+              "china"
+            ],
+            "in": "query",
+            "name": "region",
+            "type": "string"
+          },
+          {
+            "description": "1-based page number; defaults to 1",
+            "in": "query",
+            "maximum": 500,
+            "minimum": 1,
+            "name": "page",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.EventsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg Valorant events",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/forum-categories": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the VLR.gg forum directory: each category with slug, name, group, description, thread and post counts and the last poster, time and thread. `slug` is one of `valorant-discussion`, `off-topic`, `site-feedback`; use it as `category` in vlr-forum-threads.",
+        "operationId": "vlr-forum-categories",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.ForumCategoriesResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg forum categories",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/forum-threads": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns a page (30) of VLR.gg forum threads, newest activity first, for one `category` (`valorant-discussion`, `off-topic`, `site-feedback`) or the combined list: title, reply count, pinned flag, category, author, post age, frags (score) and the last poster. Thread titles and usernames are public community content; thread bodies and replies are not returned.",
+        "operationId": "vlr-forum-threads",
+        "parameters": [
+          {
+            "description": "Forum category; one of valorant-discussion, off-topic, site-feedback; omit for the combined list",
+            "enum": [
+              "valorant-discussion",
+              "off-topic",
+              "site-feedback"
+            ],
+            "in": "query",
+            "name": "category",
+            "type": "string"
+          },
+          {
+            "description": "1-based page number; defaults to 1",
+            "in": "query",
+            "maximum": 500,
+            "minimum": 1,
+            "name": "page",
+            "type": "integer"
+          },
+          {
+            "description": "Order; one of hot, new, top; omit for the site default (recent activity)",
+            "enum": [
+              "hot",
+              "new",
+              "top"
+            ],
+            "in": "query",
+            "name": "sort",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.ForumThreadsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg forum thread list",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/match": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one VLR.gg match: event and stage, exact UTC start time, status (`final`, `live`, `upcoming`), format such as `Bo3`, both teams with series score, the pick/ban note, and every map with picker, round scores split into attack, defend and overtime, duration and per-player lines (agents, rating, ACS, K/D/A, KAST, ADR, headshot percent, first kills and deaths). `all_maps_players` holds the aggregate across maps. Also returns the teams' head-to-head history and each team's recent results. Player fields are omitted when VLR has not published them yet. Use vlr-match-economy, vlr-match-performance and vlr-match-rounds for the economy, kill-matrix and round-by-round tabs.",
+        "operationId": "vlr-match",
+        "parameters": [
+          {
+            "description": "Numeric VLR match id from vlr-matches, vlr-results or vlr-event-matches",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "777956"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.MatchDetail"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg Valorant match detail and player statistics",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/match-economy": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the Economy tab of one VLR.gg match for every map and for the whole match: each team's pistol rounds, pistol conversion and bonus-round records, win records by buy level (`eco` under 10k, `half` 10k to 18k, `full` 18k and over) against each opponent buy level, and round by round banks, loadout values, buy levels, the winner and the winning side. `available` is false while VLR has not published the tab, which is normal for a match that just ended.",
+        "operationId": "vlr-match-economy",
+        "parameters": [
+          {
+            "description": "Numeric VLR match id from vlr-matches, vlr-results or vlr-event-matches",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "754737"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.MatchEconomy"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg Valorant match economy",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/match-performance": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the Performance tab of one VLR.gg match for every map and for the whole match: player-versus-player kill matrices (overall kills and deaths, first kills and deaths, and Operator kills and deaths) and per-player advanced stats (2K to 5K multi-kills, 1v1 to 1v5 clutches, econ rating, spike plants and defuses). `available` is false while VLR has not published the tab.",
+        "operationId": "vlr-match-performance",
+        "parameters": [
+          {
+            "description": "Numeric VLR match id from vlr-matches, vlr-results or vlr-event-matches",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "754737"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.MatchPerformance"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg Valorant match performance",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/match-rounds": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the round log (the 2D replay data) of one VLR.gg match for every map that has one: for each round the score after it, the winner, the attacking team, every player's agent, credits left, spend, armor and weapon, and the ordered events (kills with weapon, spike plants and defuses) with their round clock. `available` is false when VLR has no replay for the match.",
+        "operationId": "vlr-match-rounds",
+        "parameters": [
+          {
+            "description": "Numeric VLR match id from vlr-matches, vlr-results or vlr-event-matches",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "754737"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.MatchRounds"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg Valorant match round-by-round log",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/matches": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the Valorant match schedule from VLR.gg: upcoming and live matches grouped by day with both teams, country flags, event, stage, ETA and whether stats or VODs exist. `status` is `upcoming`, `live` or `completed`. `time_label` is the time shown on the site, whose timezone is not guaranteed; use vlr-match for an exact UTC start time. Use vlr-results for finished matches.",
+        "operationId": "vlr-matches",
+        "parameters": [
+          {
+            "description": "1-based page number; defaults to 1",
+            "in": "query",
+            "maximum": 500,
+            "minimum": 1,
+            "name": "page",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.MatchListResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg upcoming and live Valorant matches",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/news": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the latest Valorant esports news headlines from VLR.gg, 30 per page, with title, summary line, date, author and country flag. Page back through older news with `page`.",
+        "operationId": "vlr-news",
+        "parameters": [
+          {
+            "description": "1-based page number; defaults to 1",
+            "in": "query",
+            "maximum": 500,
+            "minimum": 1,
+            "name": "page",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.NewsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg Valorant esports news",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/news-article": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one VLR.gg news article: title, author, UTC publish time, the body as plain-text paragraphs, the teams, players and events it links to (type `team`, `player` or `event`, with id, slug and name), external links and image URLs. Reader comments are not included. Forum threads share the same numeric id space, so an id that is a thread, or does not exist, returns not found. Take `id` from vlr-news.",
+        "operationId": "vlr-news-article",
+        "parameters": [
+          {
+            "description": "Numeric VLR news article id from vlr-news",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "781119"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.ArticleDetail"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg news article",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/player": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one VLR.gg player: alias, real name, country, social links, agent-by-agent statistics (use, rounds, rating, ACS, K:D, KAST, ADR, KPR, APR and first kills), current and past teams and recent results.",
+        "operationId": "vlr-player",
+        "parameters": [
+          {
+            "description": "Numeric VLR player id from vlr-team or vlr-stats",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "9780"
+          },
+          {
+            "description": "Window of the agent statistics; one of all, 30d, 60d, 90d; omit for the site default",
+            "enum": [
+              "all",
+              "30d",
+              "60d",
+              "90d"
+            ],
+            "in": "query",
+            "name": "timespan",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.PlayerDetail"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg Valorant player profile and agent statistics",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/player-matches": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns a player's match history from VLR.gg, 50 per page, newest first: event, stage, the player's team and opponent, series score, win or loss and date. Use vlr-match with a returned `id` for the player's map statistics.",
+        "operationId": "vlr-player-matches",
+        "parameters": [
+          {
+            "description": "Numeric VLR player id from vlr-team or vlr-stats",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "9780"
+          },
+          {
+            "description": "1-based page number; defaults to 1",
+            "in": "query",
+            "maximum": 500,
+            "minimum": 1,
+            "name": "page",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.HistoryResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg Valorant player match history",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/rankings": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns VLR.gg's team ranking for one region: rank, team, country, rating, record, streak, earnings and last match. `region` is one of north-america, europe, brazil, asia-pacific, korea, china, japan, la-s, la-n, oceania, mena, gc, collegiate. `limit` returns the top 1 to 250 teams (default 50).",
+        "operationId": "vlr-rankings",
+        "parameters": [
+          {
+            "description": "Ranking region; one of north-america, europe, brazil, asia-pacific, korea, china, japan, la-s, la-n, oceania, mena, gc, collegiate; defaults to north-america",
+            "enum": [
+              "north-america",
+              "europe",
+              "brazil",
+              "asia-pacific",
+              "korea",
+              "china",
+              "japan",
+              "la-s",
+              "la-n",
+              "oceania",
+              "mena",
+              "gc",
+              "collegiate"
+            ],
+            "in": "query",
+            "name": "region",
+            "type": "string"
+          },
+          {
+            "description": "Number of top teams to return, 1 to 250; defaults to 50",
+            "in": "query",
+            "maximum": 250,
+            "minimum": 1,
+            "name": "limit",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.RankingsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg Valorant team rankings by region",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/results": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns completed Valorant matches from VLR.gg, newest first, 50 per page, with final series scores, winner flags, event, stage and whether stats or VODs are listed. For a completed match `eta` is the time since it ended. Use vlr-match with a returned `id` for map-by-map player statistics.",
+        "operationId": "vlr-results",
+        "parameters": [
+          {
+            "description": "1-based page number; defaults to 1",
+            "in": "query",
+            "maximum": 500,
+            "minimum": 1,
+            "name": "page",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.MatchListResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg completed Valorant match results",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/search": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Searches VLR.gg for teams, events and players by name and returns every match on one page: kind, id, name, canonical URL and logo, plus the event date range and prize pool and, for retired teams, the `inactive` flag and the team that replaced them (`successor`). `type` limits the search to `teams`, `events` or `players`; the default `all` returns all three groups with per-group counts. Use the returned id with vlr-team, vlr-event or vlr-player.",
+        "operationId": "vlr-search",
+        "parameters": [
+          {
+            "description": "Search text, 1 to 100 characters",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "sentinels"
+          },
+          {
+            "description": "Result group; one of all, teams, events, players; defaults to all",
+            "enum": [
+              "all",
+              "teams",
+              "events",
+              "players"
+            ],
+            "in": "query",
+            "name": "type",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.SearchResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg search for teams, events and players",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/stats": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns VLR.gg's player statistics table (100 rows per page): agents played, maps, rounds, rating, ACS, K:D, KAST, ADR, KPR, APR, first-kill and clutch rates and totals. Filter with comma-separated `tier` (vct, vcl, t3, gc, cg, off), `region` (americas, emea, pacific, china, intl), `role` (controller, initiator, sentinel, duelist), `agent` and `map` names, plus `timespan` (all, 30d, 60d, 90d or a year 2020 to 2026), `side` (all, t, ct), `min_rounds` and `min_rating`; sort with `sort` and `dir`.",
+        "operationId": "vlr-stats",
+        "parameters": [
+          {
+            "description": "Comma-separated tiers from vct, vcl, t3, gc, cg, off; site default vct",
+            "in": "query",
+            "name": "tier",
+            "type": "string"
+          },
+          {
+            "description": "Comma-separated regions from americas, emea, pacific, china, intl",
+            "in": "query",
+            "name": "region",
+            "type": "string"
+          },
+          {
+            "description": "Timespan; one of all, 30d, 60d, 90d, 2026, 2025, 2024, 2023, 2022, 2021, 2020; site default 60d",
+            "enum": [
+              "all",
+              "30d",
+              "60d",
+              "90d",
+              "2026",
+              "2025",
+              "2024",
+              "2023",
+              "2022",
+              "2021",
+              "2020"
+            ],
+            "in": "query",
+            "name": "timespan",
+            "type": "string"
+          },
+          {
+            "description": "Side; one of all, t, ct",
+            "enum": [
+              "all",
+              "t",
+              "ct"
+            ],
+            "in": "query",
+            "name": "side",
+            "type": "string"
+          },
+          {
+            "description": "Comma-separated roles from controller, initiator, sentinel, duelist",
+            "in": "query",
+            "name": "role",
+            "type": "string"
+          },
+          {
+            "description": "Comma-separated agents from astra, brimstone, clove, harbor, miks, omen, viper, breach, fade, gekko, kayo, skye, sova, tejo, chamber, cypher, deadlock, killjoy, sage, veto, vyse, iso, jett, neon, phoenix, raze, reyna, waylay, yoru",
+            "in": "query",
+            "name": "agent",
+            "type": "string"
+          },
+          {
+            "description": "Comma-separated maps from abyss, bind, corrode, haven, lotus, summit, sunset, ascent, breeze, fracture, icebox, pearl, split",
+            "in": "query",
+            "name": "map",
+            "type": "string"
+          },
+          {
+            "description": "Minimum rounds played; site default 100",
+            "in": "query",
+            "minimum": 0,
+            "name": "min_rounds",
+            "type": "integer"
+          },
+          {
+            "description": "First day of a custom date range, YYYY-MM-DD (UTC); requires to and replaces timespan",
+            "in": "query",
+            "name": "from",
+            "type": "string",
+            "x-example": "2026-09-01"
+          },
+          {
+            "description": "Last day of a custom date range, YYYY-MM-DD (UTC); requires from and replaces timespan",
+            "in": "query",
+            "name": "to",
+            "type": "string",
+            "x-example": "2026-10-01"
+          },
+          {
+            "description": "Minimum player rating; one of 0, 1300, 1400, 1500, 1550, 1650, 1750, 1850",
+            "enum": [
+              0,
+              1300,
+              1400,
+              1500,
+              1550,
+              1650,
+              1750,
+              1850
+            ],
+            "in": "query",
+            "name": "min_rating",
+            "type": "integer"
+          },
+          {
+            "description": "Sort column; one of rating, maps, rnd, acs, kd, kast, adr, kpr, apr, fkfd, fkpr, fdpr, hsp, clp, cl, kmax, k, d, a, fk, fd; defaults to rating",
+            "enum": [
+              "rating",
+              "maps",
+              "rnd",
+              "acs",
+              "kd",
+              "kast",
+              "adr",
+              "kpr",
+              "apr",
+              "fkfd",
+              "fkpr",
+              "fdpr",
+              "hsp",
+              "clp",
+              "cl",
+              "kmax",
+              "k",
+              "d",
+              "a",
+              "fk",
+              "fd"
+            ],
+            "in": "query",
+            "name": "sort",
+            "type": "string"
+          },
+          {
+            "description": "Sort direction; one of asc, desc; defaults to desc",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "in": "query",
+            "name": "dir",
+            "type": "string"
+          },
+          {
+            "description": "1-based page number; defaults to 1",
+            "in": "query",
+            "maximum": 500,
+            "minimum": 1,
+            "name": "page",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.StatsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg Valorant player statistics with filters",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/team": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one VLR.gg team: name, tag, country, links, the roster (players with captain flag, plus coach, manager and analyst staff, each with a player id) and recent matches with scores and results, plus related news. Use vlr-player with a roster `id`.",
+        "operationId": "vlr-team",
+        "parameters": [
+          {
+            "description": "Numeric VLR team id from vlr-rankings, vlr-event or vlr-match",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "2059"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.TeamDetail"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg Valorant team profile and roster",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/team-maps": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns a team's per-map record from VLR.gg: maps played, win percent, wins and losses, plus attack-side and defense-side round win percent, rounds won and lost and first-round counts. Use it to compare map strengths; vlr-team-matches lists the underlying matches.",
+        "operationId": "vlr-team-maps",
+        "parameters": [
+          {
+            "description": "Numeric VLR team id from vlr-rankings, vlr-event or vlr-match",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "2059"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.TeamMapsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg Valorant team map win rates",
+        "tags": [
+          "vlr"
+        ]
+      }
+    },
+    "/vlr/team-matches": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns a team's complete match history from VLR.gg, 50 per page, newest first: event, stage, opponent, series score, win or loss and date. Use vlr-match with a returned `id` for map detail, or vlr-team for the roster.",
+        "operationId": "vlr-team-matches",
+        "parameters": [
+          {
+            "description": "Numeric VLR team id from vlr-rankings, vlr-event or vlr-match",
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "x-example": "2059"
+          },
+          {
+            "description": "1-based page number; defaults to 1",
+            "in": "query",
+            "maximum": 500,
+            "minimum": 1,
+            "name": "page",
+            "type": "integer"
+          },
+          {
+            "description": "Match group; one of completed (default), upcoming",
+            "enum": [
+              "completed",
+              "upcoming"
+            ],
+            "in": "query",
+            "name": "group",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/vlr.HistoryResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "VLR.gg Valorant team match history",
+        "tags": [
+          "vlr"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "in": "header",
+      "name": "x-api-key",
+      "type": "apiKey"
+    }
+  },
+  "swagger": "2.0",
+  "tags": [
+    {
+      "name": "vlr"
+    }
+  ]
+}

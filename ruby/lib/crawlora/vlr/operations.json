@@ -1,0 +1,1396 @@
+{
+  "platform": "vlr",
+  "operationCount": 23,
+  "operationIds": [
+    "vlr-event",
+    "vlr-event-agents",
+    "vlr-event-matches",
+    "vlr-event-stats",
+    "vlr-events",
+    "vlr-forum-categories",
+    "vlr-forum-threads",
+    "vlr-match",
+    "vlr-match-economy",
+    "vlr-match-performance",
+    "vlr-match-rounds",
+    "vlr-matches",
+    "vlr-news",
+    "vlr-news-article",
+    "vlr-player",
+    "vlr-player-matches",
+    "vlr-rankings",
+    "vlr-results",
+    "vlr-search",
+    "vlr-stats",
+    "vlr-team",
+    "vlr-team-maps",
+    "vlr-team-matches"
+  ],
+  "methods": {
+    "event": "vlr-event",
+    "event_agents": "vlr-event-agents",
+    "event_matches": "vlr-event-matches",
+    "event_stats": "vlr-event-stats",
+    "events": "vlr-events",
+    "forum_categories": "vlr-forum-categories",
+    "forum_threads": "vlr-forum-threads",
+    "match": "vlr-match",
+    "match_economy": "vlr-match-economy",
+    "match_performance": "vlr-match-performance",
+    "match_rounds": "vlr-match-rounds",
+    "matches": "vlr-matches",
+    "news": "vlr-news",
+    "news_article": "vlr-news-article",
+    "player": "vlr-player",
+    "player_matches": "vlr-player-matches",
+    "rankings": "vlr-rankings",
+    "results": "vlr-results",
+    "search": "vlr-search",
+    "stats": "vlr-stats",
+    "team": "vlr-team",
+    "team_maps": "vlr-team-maps",
+    "team_matches": "vlr-team-matches"
+  },
+  "operations": {
+    "vlr-event": {
+      "id": "vlr-event",
+      "method": "GET",
+      "path": "/vlr/event",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Numeric VLR event id from vlr-events",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "3166"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-event-agents": {
+      "id": "vlr-event-agents",
+      "method": "GET",
+      "path": "/vlr/event-agents",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Numeric VLR event id from vlr-events",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "3166"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-event-matches": {
+      "id": "vlr-event-matches",
+      "method": "GET",
+      "path": "/vlr/event-matches",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "series_id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "group",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "completed",
+            "upcoming"
+          ]
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Numeric VLR event id from vlr-events",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "3166"
+        },
+        {
+          "description": "Stage id from the stages list of an earlier response (a week, group or bracket round); omit for every stage",
+          "in": "query",
+          "name": "series_id",
+          "type": "string",
+          "x-example": "6080"
+        },
+        {
+          "description": "Match group; one of completed, upcoming; omit for both",
+          "enum": [
+            "completed",
+            "upcoming"
+          ],
+          "in": "query",
+          "name": "group",
+          "type": "string"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-event-stats": {
+      "id": "vlr-event-stats",
+      "method": "GET",
+      "path": "/vlr/event-stats",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "side",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "all",
+            "t",
+            "ct"
+          ]
+        },
+        {
+          "name": "role",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "agent",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "map",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "stage",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "min_rounds",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "sort",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "dir",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "desc",
+            "asc"
+          ]
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Numeric VLR event id from vlr-events",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "3166"
+        },
+        {
+          "description": "Side; one of all, t, ct; defaults to all",
+          "enum": [
+            "all",
+            "t",
+            "ct"
+          ],
+          "in": "query",
+          "name": "side",
+          "type": "string"
+        },
+        {
+          "description": "Comma-separated agent roles; any of controller, initiator, sentinel, duelist",
+          "in": "query",
+          "name": "role",
+          "type": "string",
+          "x-example": "duelist"
+        },
+        {
+          "description": "Comma-separated agents, for example jett,sage; the same 29 agents as vlr-stats",
+          "in": "query",
+          "name": "agent",
+          "type": "string",
+          "x-example": "jett"
+        },
+        {
+          "description": "Comma-separated map names, for example ascent,bind; the same 13 maps as vlr-stats",
+          "in": "query",
+          "name": "map",
+          "type": "string",
+          "x-example": "ascent"
+        },
+        {
+          "description": "Comma-separated stage ids from the stages list of vlr-event-matches",
+          "in": "query",
+          "name": "stage",
+          "type": "string",
+          "x-example": "6080"
+        },
+        {
+          "description": "Minimum rounds played; 0 to 100000",
+          "in": "query",
+          "maximum": 100000,
+          "minimum": 0,
+          "name": "min_rounds",
+          "type": "integer"
+        },
+        {
+          "description": "Sort column, the same set as vlr-stats; defaults to rating",
+          "in": "query",
+          "name": "sort",
+          "type": "string"
+        },
+        {
+          "description": "Sort direction; one of desc, asc; defaults to desc",
+          "enum": [
+            "desc",
+            "asc"
+          ],
+          "in": "query",
+          "name": "dir",
+          "type": "string"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-events": {
+      "id": "vlr-events",
+      "method": "GET",
+      "path": "/vlr/events",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "tier",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "all",
+            "vct",
+            "vcl",
+            "t3",
+            "gc",
+            "cg",
+            "off"
+          ]
+        },
+        {
+          "name": "region",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "all",
+            "americas",
+            "emea",
+            "pacific",
+            "china"
+          ]
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Event tier; one of all, vct, vcl, t3, gc, cg, off; defaults to all",
+          "enum": [
+            "all",
+            "vct",
+            "vcl",
+            "t3",
+            "gc",
+            "cg",
+            "off"
+          ],
+          "in": "query",
+          "name": "tier",
+          "type": "string"
+        },
+        {
+          "description": "Event region; one of all, americas, emea, pacific, china; defaults to all",
+          "enum": [
+            "all",
+            "americas",
+            "emea",
+            "pacific",
+            "china"
+          ],
+          "in": "query",
+          "name": "region",
+          "type": "string"
+        },
+        {
+          "description": "1-based page number; defaults to 1",
+          "in": "query",
+          "maximum": 500,
+          "minimum": 1,
+          "name": "page",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-forum-categories": {
+      "id": "vlr-forum-categories",
+      "method": "GET",
+      "path": "/vlr/forum-categories",
+      "pathParams": [],
+      "queryParams": [],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-forum-threads": {
+      "id": "vlr-forum-threads",
+      "method": "GET",
+      "path": "/vlr/forum-threads",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "category",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "valorant-discussion",
+            "off-topic",
+            "site-feedback"
+          ]
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "sort",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "hot",
+            "new",
+            "top"
+          ]
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Forum category; one of valorant-discussion, off-topic, site-feedback; omit for the combined list",
+          "enum": [
+            "valorant-discussion",
+            "off-topic",
+            "site-feedback"
+          ],
+          "in": "query",
+          "name": "category",
+          "type": "string"
+        },
+        {
+          "description": "1-based page number; defaults to 1",
+          "in": "query",
+          "maximum": 500,
+          "minimum": 1,
+          "name": "page",
+          "type": "integer"
+        },
+        {
+          "description": "Order; one of hot, new, top; omit for the site default (recent activity)",
+          "enum": [
+            "hot",
+            "new",
+            "top"
+          ],
+          "in": "query",
+          "name": "sort",
+          "type": "string"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-match": {
+      "id": "vlr-match",
+      "method": "GET",
+      "path": "/vlr/match",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Numeric VLR match id from vlr-matches, vlr-results or vlr-event-matches",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "777956"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-match-economy": {
+      "id": "vlr-match-economy",
+      "method": "GET",
+      "path": "/vlr/match-economy",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Numeric VLR match id from vlr-matches, vlr-results or vlr-event-matches",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "754737"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-match-performance": {
+      "id": "vlr-match-performance",
+      "method": "GET",
+      "path": "/vlr/match-performance",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Numeric VLR match id from vlr-matches, vlr-results or vlr-event-matches",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "754737"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-match-rounds": {
+      "id": "vlr-match-rounds",
+      "method": "GET",
+      "path": "/vlr/match-rounds",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Numeric VLR match id from vlr-matches, vlr-results or vlr-event-matches",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "754737"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-matches": {
+      "id": "vlr-matches",
+      "method": "GET",
+      "path": "/vlr/matches",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "1-based page number; defaults to 1",
+          "in": "query",
+          "maximum": 500,
+          "minimum": 1,
+          "name": "page",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-news": {
+      "id": "vlr-news",
+      "method": "GET",
+      "path": "/vlr/news",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "1-based page number; defaults to 1",
+          "in": "query",
+          "maximum": 500,
+          "minimum": 1,
+          "name": "page",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-news-article": {
+      "id": "vlr-news-article",
+      "method": "GET",
+      "path": "/vlr/news-article",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Numeric VLR news article id from vlr-news",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "781119"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-player": {
+      "id": "vlr-player",
+      "method": "GET",
+      "path": "/vlr/player",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "timespan",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "all",
+            "30d",
+            "60d",
+            "90d"
+          ]
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Numeric VLR player id from vlr-team or vlr-stats",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "9780"
+        },
+        {
+          "description": "Window of the agent statistics; one of all, 30d, 60d, 90d; omit for the site default",
+          "enum": [
+            "all",
+            "30d",
+            "60d",
+            "90d"
+          ],
+          "in": "query",
+          "name": "timespan",
+          "type": "string"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-player-matches": {
+      "id": "vlr-player-matches",
+      "method": "GET",
+      "path": "/vlr/player-matches",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Numeric VLR player id from vlr-team or vlr-stats",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "9780"
+        },
+        {
+          "description": "1-based page number; defaults to 1",
+          "in": "query",
+          "maximum": 500,
+          "minimum": 1,
+          "name": "page",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-rankings": {
+      "id": "vlr-rankings",
+      "method": "GET",
+      "path": "/vlr/rankings",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "region",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "north-america",
+            "europe",
+            "brazil",
+            "asia-pacific",
+            "korea",
+            "china",
+            "japan",
+            "la-s",
+            "la-n",
+            "oceania",
+            "mena",
+            "gc",
+            "collegiate"
+          ]
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Ranking region; one of north-america, europe, brazil, asia-pacific, korea, china, japan, la-s, la-n, oceania, mena, gc, collegiate; defaults to north-america",
+          "enum": [
+            "north-america",
+            "europe",
+            "brazil",
+            "asia-pacific",
+            "korea",
+            "china",
+            "japan",
+            "la-s",
+            "la-n",
+            "oceania",
+            "mena",
+            "gc",
+            "collegiate"
+          ],
+          "in": "query",
+          "name": "region",
+          "type": "string"
+        },
+        {
+          "description": "Number of top teams to return, 1 to 250; defaults to 50",
+          "in": "query",
+          "maximum": 250,
+          "minimum": 1,
+          "name": "limit",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-results": {
+      "id": "vlr-results",
+      "method": "GET",
+      "path": "/vlr/results",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "1-based page number; defaults to 1",
+          "in": "query",
+          "maximum": 500,
+          "minimum": 1,
+          "name": "page",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-search": {
+      "id": "vlr-search",
+      "method": "GET",
+      "path": "/vlr/search",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "all",
+            "teams",
+            "events",
+            "players"
+          ]
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Search text, 1 to 100 characters",
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "type": "string",
+          "x-example": "sentinels"
+        },
+        {
+          "description": "Result group; one of all, teams, events, players; defaults to all",
+          "enum": [
+            "all",
+            "teams",
+            "events",
+            "players"
+          ],
+          "in": "query",
+          "name": "type",
+          "type": "string"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-stats": {
+      "id": "vlr-stats",
+      "method": "GET",
+      "path": "/vlr/stats",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "tier",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "region",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "timespan",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "all",
+            "30d",
+            "60d",
+            "90d",
+            "2026",
+            "2025",
+            "2024",
+            "2023",
+            "2022",
+            "2021",
+            "2020"
+          ]
+        },
+        {
+          "name": "side",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "all",
+            "t",
+            "ct"
+          ]
+        },
+        {
+          "name": "role",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "agent",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "map",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "min_rounds",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "from",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "to",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "min_rating",
+          "in": "query",
+          "type": "integer",
+          "enum": [
+            "0",
+            "1300",
+            "1400",
+            "1500",
+            "1550",
+            "1650",
+            "1750",
+            "1850"
+          ]
+        },
+        {
+          "name": "sort",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "rating",
+            "maps",
+            "rnd",
+            "acs",
+            "kd",
+            "kast",
+            "adr",
+            "kpr",
+            "apr",
+            "fkfd",
+            "fkpr",
+            "fdpr",
+            "hsp",
+            "clp",
+            "cl",
+            "kmax",
+            "k",
+            "d",
+            "a",
+            "fk",
+            "fd"
+          ]
+        },
+        {
+          "name": "dir",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "asc",
+            "desc"
+          ]
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Comma-separated tiers from vct, vcl, t3, gc, cg, off; site default vct",
+          "in": "query",
+          "name": "tier",
+          "type": "string"
+        },
+        {
+          "description": "Comma-separated regions from americas, emea, pacific, china, intl",
+          "in": "query",
+          "name": "region",
+          "type": "string"
+        },
+        {
+          "description": "Timespan; one of all, 30d, 60d, 90d, 2026, 2025, 2024, 2023, 2022, 2021, 2020; site default 60d",
+          "enum": [
+            "all",
+            "30d",
+            "60d",
+            "90d",
+            "2026",
+            "2025",
+            "2024",
+            "2023",
+            "2022",
+            "2021",
+            "2020"
+          ],
+          "in": "query",
+          "name": "timespan",
+          "type": "string"
+        },
+        {
+          "description": "Side; one of all, t, ct",
+          "enum": [
+            "all",
+            "t",
+            "ct"
+          ],
+          "in": "query",
+          "name": "side",
+          "type": "string"
+        },
+        {
+          "description": "Comma-separated roles from controller, initiator, sentinel, duelist",
+          "in": "query",
+          "name": "role",
+          "type": "string"
+        },
+        {
+          "description": "Comma-separated agents from astra, brimstone, clove, harbor, miks, omen, viper, breach, fade, gekko, kayo, skye, sova, tejo, chamber, cypher, deadlock, killjoy, sage, veto, vyse, iso, jett, neon, phoenix, raze, reyna, waylay, yoru",
+          "in": "query",
+          "name": "agent",
+          "type": "string"
+        },
+        {
+          "description": "Comma-separated maps from abyss, bind, corrode, haven, lotus, summit, sunset, ascent, breeze, fracture, icebox, pearl, split",
+          "in": "query",
+          "name": "map",
+          "type": "string"
+        },
+        {
+          "description": "Minimum rounds played; site default 100",
+          "in": "query",
+          "minimum": 0,
+          "name": "min_rounds",
+          "type": "integer"
+        },
+        {
+          "description": "First day of a custom date range, YYYY-MM-DD (UTC); requires to and replaces timespan",
+          "in": "query",
+          "name": "from",
+          "type": "string",
+          "x-example": "2026-09-01"
+        },
+        {
+          "description": "Last day of a custom date range, YYYY-MM-DD (UTC); requires from and replaces timespan",
+          "in": "query",
+          "name": "to",
+          "type": "string",
+          "x-example": "2026-10-01"
+        },
+        {
+          "description": "Minimum player rating; one of 0, 1300, 1400, 1500, 1550, 1650, 1750, 1850",
+          "enum": [
+            0,
+            1300,
+            1400,
+            1500,
+            1550,
+            1650,
+            1750,
+            1850
+          ],
+          "in": "query",
+          "name": "min_rating",
+          "type": "integer"
+        },
+        {
+          "description": "Sort column; one of rating, maps, rnd, acs, kd, kast, adr, kpr, apr, fkfd, fkpr, fdpr, hsp, clp, cl, kmax, k, d, a, fk, fd; defaults to rating",
+          "enum": [
+            "rating",
+            "maps",
+            "rnd",
+            "acs",
+            "kd",
+            "kast",
+            "adr",
+            "kpr",
+            "apr",
+            "fkfd",
+            "fkpr",
+            "fdpr",
+            "hsp",
+            "clp",
+            "cl",
+            "kmax",
+            "k",
+            "d",
+            "a",
+            "fk",
+            "fd"
+          ],
+          "in": "query",
+          "name": "sort",
+          "type": "string"
+        },
+        {
+          "description": "Sort direction; one of asc, desc; defaults to desc",
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "in": "query",
+          "name": "dir",
+          "type": "string"
+        },
+        {
+          "description": "1-based page number; defaults to 1",
+          "in": "query",
+          "maximum": 500,
+          "minimum": 1,
+          "name": "page",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-team": {
+      "id": "vlr-team",
+      "method": "GET",
+      "path": "/vlr/team",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Numeric VLR team id from vlr-rankings, vlr-event or vlr-match",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "2059"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-team-maps": {
+      "id": "vlr-team-maps",
+      "method": "GET",
+      "path": "/vlr/team-maps",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Numeric VLR team id from vlr-rankings, vlr-event or vlr-match",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "2059"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "vlr-team-matches": {
+      "id": "vlr-team-matches",
+      "method": "GET",
+      "path": "/vlr/team-matches",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "group",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "completed",
+            "upcoming"
+          ]
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Numeric VLR team id from vlr-rankings, vlr-event or vlr-match",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "2059"
+        },
+        {
+          "description": "1-based page number; defaults to 1",
+          "in": "query",
+          "maximum": 500,
+          "minimum": 1,
+          "name": "page",
+          "type": "integer"
+        },
+        {
+          "description": "Match group; one of completed (default), upcoming",
+          "enum": [
+            "completed",
+            "upcoming"
+          ],
+          "in": "query",
+          "name": "group",
+          "type": "string"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "crawlora/vlr",
+  "description": "Crawlora VLR.gg API client with 23 endpoints for Valorant matches, events, results, rankings, statistics, news, and forum data",
+  "keywords": [
+    "crawlora",
+    "api-client",
+    "sdk",
+    "web-scraping",
+    "scraping-api",
+    "vlr",
+    "vlr-gg",
+    "vlr-api",
+    "vlr-gg-api",
+    "vlr-scraper",
+    "vlr-gg-scraper",
+    "vlr-data",
+    "vlr-gg-data",
+    "vlr-valorant-matches",
+    "vlr-events",
+    "vlr-results",
+    "vlr-rankings",
+    "vlr-statistics",
+    "vlr-news",
+    "vlr-forum-data"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.1",
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Crawlora\\Vlr\\": "php/src/Crawlora/Vlr/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Crawlora\\Vlr\\Tests\\": "php/tests/"
+    }
+  },
+  "scripts": {
+    "test": "php php/tests/client_test.php"
+  },
+  "homepage": "https://crawlora.net/?utm_source=packagist&utm_medium=referral&utm_campaign=platform-clients&utm_content=vlr-php-homepage",
+  "support": {
+    "source": "https://github.com/Crawlora-org/crawlora-vlr",
+    "docs": "https://crawlora.net/docs?utm_source=packagist&utm_medium=referral&utm_campaign=platform-clients&utm_content=vlr-php-api-docs"
+  }
+}
