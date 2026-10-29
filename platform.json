@@ -1,4 +1,5 @@
 {
+  "api_path_prefix": "/vlr/",
   "async_class_name": "AsyncVLRClient",
   "class_name": "VLRClient",
   "contract_revision": "sha256:370561612f103fbd9de6f1c5064c916796727ec38ffb4b5d041419ac0b175e30",

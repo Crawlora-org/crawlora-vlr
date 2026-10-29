@@ -841,7 +841,7 @@ export interface VlrStatsParams {
   "min_rounds"?: number;
   "from"?: string;
   "to"?: string;
-  "min_rating"?: "0" | "1300" | "1400" | "1500" | "1550" | "1650" | "1750" | "1850";
+  "min_rating"?: 0 | 1300 | 1400 | 1500 | 1550 | 1650 | 1750 | 1850;
   "sort"?: "rating" | "maps" | "rnd" | "acs" | "kd" | "kast" | "adr" | "kpr" | "apr" | "fkfd" | "fkpr" | "fdpr" | "hsp" | "clp" | "cl" | "kmax" | "k" | "d" | "a" | "fk" | "fd";
   "dir"?: "asc" | "desc";
   "page"?: number;
