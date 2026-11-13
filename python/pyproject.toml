@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "crawlora-vlr"
-version = "0.1.0"
+version = "0.2.0"
 description = "Crawlora VLR.gg API client with 23 endpoints for Valorant matches, events, results, rankings, statistics, news, and forum data"
 readme = "README.md"
 keywords = ["crawlora", "api-client", "sdk", "web-scraping", "scraping-api", "vlr", "vlr-gg", "vlr-api", "vlr-gg-api", "vlr-scraper", "vlr-gg-scraper", "vlr-data", "vlr-gg-data", "vlr-valorant-matches", "vlr-events", "vlr-results", "vlr-rankings", "vlr-statistics", "vlr-news", "vlr-forum-data"]

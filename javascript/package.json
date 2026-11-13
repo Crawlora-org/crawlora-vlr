@@ -1,6 +1,6 @@
 {
   "name": "@crawlora-org/vlr",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Crawlora VLR.gg API client with 23 endpoints for Valorant matches, events, results, rankings, statistics, news, and forum data",
   "homepage": "https://crawlora.net/?utm_source=npm&utm_medium=referral&utm_campaign=platform-clients&utm_content=vlr-javascript-homepage",
   "bugs": { "url": "https://github.com/Crawlora-org/crawlora-vlr/issues" },

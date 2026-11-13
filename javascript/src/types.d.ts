@@ -833,7 +833,7 @@ export type VlrStatsResponse = CrawloraResponse<ModelAppResponse & { "data"?: Mo
 export interface VlrStatsParams {
   "tier"?: string;
   "region"?: string;
-  "timespan"?: "all" | "30d" | "60d" | "90d" | "2026" | "2025" | "2024" | "2023" | "2022" | "2021" | "2020";
+  "timespan"?: string;
   "side"?: "all" | "t" | "ct";
   "role"?: string;
   "agent"?: string;
