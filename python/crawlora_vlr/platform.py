@@ -7,7 +7,7 @@ from .async_client import AsyncCrawloraClient
 class VLRClient(CrawloraClient):
     """Synchronous VLR.gg API client."""
     def __init__(self, *args: Any, **kwargs: Any) -> None:
-        kwargs.setdefault('user_agent', 'crawlora-vlr-python/0.1.0')
+        kwargs.setdefault('user_agent', 'crawlora-vlr-python/0.2.0')
         super().__init__(*args, **kwargs)
 
     def event(self, **params: Any) -> Any:
@@ -151,7 +151,7 @@ class VLRClient(CrawloraClient):
 class AsyncVLRClient(AsyncCrawloraClient):
     """Asynchronous VLR.gg API client."""
     def __init__(self, *args: Any, **kwargs: Any) -> None:
-        kwargs.setdefault('user_agent', 'crawlora-vlr-python/0.1.0')
+        kwargs.setdefault('user_agent', 'crawlora-vlr-python/0.2.0')
         super().__init__(*args, **kwargs)
 
     async def event(self, **params: Any) -> Any:

@@ -8,7 +8,7 @@ Official Crawlora client packages for the hosted VLR.gg API. Access 23 API endpo
 - Python: [`crawlora-vlr`](python/README.md)
 - Go: [`github.com/Crawlora-org/crawlora-vlr`](go.mod)
 - Ruby: [`crawlora-vlr`](ruby/README.md)
-- Java: [`net.crawlora:crawlora-vlr:0.1.0`](java/README.md)
+- Java: [`net.crawlora:crawlora-vlr:0.2.0`](java/README.md)
 - PHP: [`crawlora/vlr`](php/README.md)
 - Rust: [`crawlora-vlr`](rust/README.md)
 

@@ -2,11 +2,11 @@
   "api_path_prefix": "/vlr/",
   "async_class_name": "AsyncVLRClient",
   "class_name": "VLRClient",
-  "contract_revision": "sha256:370561612f103fbd9de6f1c5064c916796727ec38ffb4b5d041419ac0b175e30",
+  "contract_revision": "sha256:179a192268cbea90f4a433fae9fe047636b968ea7c92632fd296c8931519f7b5",
   "display_name": "VLR.gg",
   "general_sdk_version": "1.50.0-sdk.1",
   "golang_module_name": "github.com/Crawlora-org/crawlora-vlr",
-  "golang_version": "0.1.0",
+  "golang_version": "0.2.0",
   "group_name": "vlr",
   "java_description": "Java client for Crawlora's hosted VLR.gg API, with Valorant matches, events, results, rankings, statistics, news, and forum data. Requires a Crawlora API key.",
   "maven_artifact_id": "crawlora-vlr",
@@ -17,10 +17,27 @@
   "php_repository": "https://github.com/Crawlora-org/crawlora-vlr",
   "platform": "vlr",
   "python_name": "crawlora-vlr",
+  "releases": [
+    {
+      "changes": [
+        "Updated operation contracts: vlr-stats."
+      ],
+      "date": "2026-11-13",
+      "version": "0.2.0"
+    },
+    {
+      "changes": [
+        "Initial VLR.gg platform clients for Crawlora's hosted API across JavaScript/TypeScript, Python, Go, Ruby, Java, PHP, and Rust.",
+        "Includes typed endpoint methods generated from contract revision `sha256:370561612f103fbd9de6f1c5064c916796727ec38ffb4b5d041419ac0b175e30`."
+      ],
+      "date": "2026-10-07",
+      "version": "0.1.0"
+    }
+  ],
   "repository": "https://github.com/Crawlora-org/crawlora-vlr",
   "ruby_gem_name": "crawlora-vlr",
   "rust_crate_name": "crawlora-vlr",
   "rust_module_name": "crawlora_vlr",
-  "source_contract_sha256": "370561612f103fbd9de6f1c5064c916796727ec38ffb4b5d041419ac0b175e30",
-  "version": "0.1.0"
+  "source_contract_sha256": "123c5406ee3b92b07d2ef3dbe21a6ded54b79b25d26c13cbb905a34e3ecc7118",
+  "version": "0.2.0"
 }

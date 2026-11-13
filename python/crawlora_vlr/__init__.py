@@ -6,10 +6,10 @@ from .operations import OPERATION_COUNT, OPERATION_IDS, PLATFORM
 
 Client = VLRClient
 AsyncClient = AsyncVLRClient
-__version__ = '0.1.0'
+__version__ = '0.2.0'
 DISPLAY_NAME = 'VLR.gg'
 PLATFORM = 'vlr'
-CONTRACT_REVISION = 'sha256:370561612f103fbd9de6f1c5064c916796727ec38ffb4b5d041419ac0b175e30'
+CONTRACT_REVISION = 'sha256:179a192268cbea90f4a433fae9fe047636b968ea7c92632fd296c8931519f7b5'
 
 __all__ = [
     "VLRClient", "AsyncVLRClient", "Client", "AsyncClient",

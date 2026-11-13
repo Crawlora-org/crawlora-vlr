@@ -4112,7 +4112,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns VLR.gg's player statistics table (100 rows per page): agents played, maps, rounds, rating, ACS, K:D, KAST, ADR, KPR, APR, first-kill and clutch rates and totals. Filter with comma-separated `tier` (vct, vcl, t3, gc, cg, off), `region` (americas, emea, pacific, china, intl), `role` (controller, initiator, sentinel, duelist), `agent` and `map` names, plus `timespan` (all, 30d, 60d, 90d or a year 2020 to 2026), `side` (all, t, ct), `min_rounds` and `min_rating`; sort with `sort` and `dir`.",
+        "description": "Returns VLR.gg's player statistics table (100 rows per page): agents played, maps, rounds, rating, ACS, K:D, KAST, ADR, KPR, APR, first-kill and clutch rates and totals. Filter with comma-separated `tier` (vct, vcl, t3, gc, cg, off), `region` (americas, emea, pacific, china, intl), `role` (controller, initiator, sentinel, duelist), `agent` and `map` names, plus `timespan` (all, 30d, 60d, 90d or a season year from 2020 up to the current year), `side` (all, t, ct), `min_rounds` and `min_rating`; sort with `sort` and `dir`.",
         "operationId": "vlr-stats",
         "parameters": [
           {
@@ -4128,20 +4128,7 @@
             "type": "string"
           },
           {
-            "description": "Timespan; one of all, 30d, 60d, 90d, 2026, 2025, 2024, 2023, 2022, 2021, 2020; site default 60d",
-            "enum": [
-              "all",
-              "30d",
-              "60d",
-              "90d",
-              "2026",
-              "2025",
-              "2024",
-              "2023",
-              "2022",
-              "2021",
-              "2020"
-            ],
+            "description": "Timespan; one of all, 30d, 60d, 90d or a four-digit season year from 2020 up to the current year (2020, 2021, 2022, 2023, 2024, 2025, 2026 today; a new year is accepted when it starts); site default 60d",
             "in": "query",
             "name": "timespan",
             "type": "string"

@@ -9,7 +9,7 @@ import {
 
 export class VLRClient extends CrawloraClient {
   constructor(options = {}) {
-    super({ ...options, userAgent: options.userAgent ?? "crawlora-vlr-js/0.1.0" });
+    super({ ...options, userAgent: options.userAgent ?? "crawlora-vlr-js/0.2.0" });
     this["event"] = (...args) => this.request("vlr-event", ...args);
     this["eventAgents"] = (...args) => this.request("vlr-event-agents", ...args);
     this["eventMatches"] = (...args) => this.request("vlr-event-matches", ...args);
@@ -45,5 +45,5 @@ export {
   CrawloraServerError
 };
 export { groups, operations, operationCount, OperationIds } from "./operations.js";
-export const VERSION = "0.1.0";
+export const VERSION = "0.2.0";
 export default VLRClient;
